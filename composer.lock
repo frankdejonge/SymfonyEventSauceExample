@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf53253c2e2d66f83b4197de2140e166",
+    "content-hash": "bde663ed490a32566751b1e04c64698e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -982,6 +982,131 @@
             "time": "2017-11-15T23:40:40+00:00"
         },
         {
+            "name": "eventsauce/doctrine-message-repository",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EventSaucePHP/DoctrineMessageRepository.git",
+                "reference": "1b7a5b6631eee751d43db0773f00ed560f1a017c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EventSaucePHP/DoctrineMessageRepository/zipball/1b7a5b6631eee751d43db0773f00ed560f1a017c",
+                "reference": "1b7a5b6631eee751d43db0773f00ed560f1a017c",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.5",
+                "eventsauce/eventsauce": "^0.3.0",
+                "ramsey/uuid": "^3.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EventSauce\\DoctrineMessageRepository\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Doctrine Message Repository for EventSauce",
+            "time": "2018-03-23T15:11:39+00:00"
+        },
+        {
+            "name": "eventsauce/eventsauce",
+            "version": "0.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EventSaucePHP/EventSauce.git",
+                "reference": "aa53ae9295c03d73944976258db93c60d4332a2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EventSaucePHP/EventSauce/zipball/aa53ae9295c03d73944976258db93c60d4332a2f",
+                "reference": "aa53ae9295c03d73944976258db93c60d4332a2f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2",
+                "ramsey/uuid": "^3.6",
+                "symfony/yaml": "^3.2|^4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.10",
+                "phpstan/phpstan": "@stable",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EventSauce\\EventSourcing\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Event sourcing library.",
+            "time": "2018-03-24T18:38:22+00:00"
+        },
+        {
+            "name": "eventsauce/rabbitmq-bundle-bindings",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EventSaucePHP/RabbitMQBundleBindings.git",
+                "reference": "d72cdacff947c571a6b49c35d3d2a08b6c2d5dfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EventSaucePHP/RabbitMQBundleBindings/zipball/d72cdacff947c571a6b49c35d3d2a08b6c2d5dfb",
+                "reference": "d72cdacff947c571a6b49c35d3d2a08b6c2d5dfb",
+                "shasum": ""
+            },
+            "require": {
+                "eventsauce/eventsauce": "^0.3.0",
+                "php-amqplib/rabbitmq-bundle": "^1.12"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EventSauce\\RabbitMQ\\": "src",
+                    "EventSauce\\RabbitMQ\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "RabbitMQ dispatcher and consumer bindings.",
+            "time": "2018-03-23T15:14:56+00:00"
+        },
+        {
             "name": "fig/link-util",
             "version": "1.0.0",
             "source": {
@@ -1281,6 +1406,193 @@
                 "service proxies"
             ],
             "time": "2017-11-16T23:22:31+00:00"
+        },
+        {
+            "name": "paragonie/random_compat",
+            "version": "v2.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/5da4d3c796c275c55f057af5a643ae297d96b4d8",
+                "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/random.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com",
+                    "homepage": "https://paragonie.com"
+                }
+            ],
+            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+            "keywords": [
+                "csprng",
+                "pseudorandom",
+                "random"
+            ],
+            "time": "2017-09-27T21:40:39+00:00"
+        },
+        {
+            "name": "php-amqplib/php-amqplib",
+            "version": "v2.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-amqplib/php-amqplib.git",
+                "reference": "dfd3694a86f1a7394d3693485259d4074a6ec79b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/dfd3694a86f1a7394d3693485259d4074a6ec79b",
+                "reference": "dfd3694a86f1a7394d3693485259d4074a6ec79b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.3.0"
+            },
+            "replace": {
+                "videlalvaro/php-amqplib": "self.version"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "^2.9",
+                "phpunit/phpunit": "^4.8",
+                "scrutinizer/ocular": "^1.1",
+                "squizlabs/php_codesniffer": "^2.5"
+            },
+            "suggest": {
+                "ext-sockets": "Use AMQPSocketConnection"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpAmqpLib\\": "PhpAmqpLib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Alvaro Videla",
+                    "role": "Original Maintainer"
+                },
+                {
+                    "name": "John Kelly",
+                    "email": "johnmkelly86@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Raúl Araya",
+                    "email": "nubeiro@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Formerly videlalvaro/php-amqplib.  This library is a pure PHP implementation of the AMQP protocol. It's been tested against RabbitMQ.",
+            "homepage": "https://github.com/php-amqplib/php-amqplib/",
+            "keywords": [
+                "message",
+                "queue",
+                "rabbitmq"
+            ],
+            "time": "2018-02-11T19:28:00+00:00"
+        },
+        {
+            "name": "php-amqplib/rabbitmq-bundle",
+            "version": "v1.14.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-amqplib/RabbitMqBundle.git",
+                "reference": "6c0407c69b3ddb05294c67cd5acd14b73670554b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-amqplib/RabbitMqBundle/zipball/6c0407c69b3ddb05294c67cd5acd14b73670554b",
+                "reference": "6c0407c69b3ddb05294c67cd5acd14b73670554b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.9|^7.0",
+                "php-amqplib/php-amqplib": "^2.6",
+                "psr/log": "^1.0",
+                "symfony/config": "^2.7|^3.0|^4.0",
+                "symfony/console": "^2.7|^3.0|^4.0",
+                "symfony/dependency-injection": "^2.7|^3.0|^4.0",
+                "symfony/event-dispatcher": "^2.7|^3.0|^4.0",
+                "symfony/yaml": "^2.7|^3.0|^4.0"
+            },
+            "replace": {
+                "oldsound/rabbitmq-bundle": "self.version"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35|^5.4.3",
+                "symfony/debug": "^2.7|^3.0|^4.0",
+                "symfony/serializer": "^2.7|^3.0|^4.0"
+            },
+            "suggest": {
+                "symfony/framework-bundle": "To use this lib as a full Symfony Bundle and to use the profiler data collector"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.10.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OldSound\\RabbitMqBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alvaro Videla"
+                }
+            ],
+            "description": "Integrates php-amqplib with Symfony & RabbitMq. Formerly oldsound/rabbitmq-bundle.",
+            "keywords": [
+                "AMQP",
+                "Symfony2",
+                "message",
+                "queue",
+                "rabbitmq"
+            ],
+            "time": "2017-12-08T12:54:50+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -1672,6 +1984,86 @@
                 "simple-cache"
             ],
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "ramsey/uuid",
+            "version": "3.7.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/uuid.git",
+                "reference": "44abcdad877d9a46685a3a4d221e3b2c4b87cb76"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/44abcdad877d9a46685a3a4d221e3b2c4b87cb76",
+                "reference": "44abcdad877d9a46685a3a4d221e3b2c4b87cb76",
+                "shasum": ""
+            },
+            "require": {
+                "paragonie/random_compat": "^1.0|^2.0",
+                "php": "^5.4 || ^7.0"
+            },
+            "replace": {
+                "rhumsaa/uuid": "self.version"
+            },
+            "require-dev": {
+                "codeception/aspect-mock": "^1.0 | ~2.0.0",
+                "doctrine/annotations": "~1.2.0",
+                "goaop/framework": "1.0.0-alpha.2 | ^1.0 | ^2.1",
+                "ircmaxell/random-lib": "^1.1",
+                "jakub-onderka/php-parallel-lint": "^0.9.0",
+                "mockery/mockery": "^0.9.9",
+                "moontoast/math": "^1.1",
+                "php-mock/php-mock-phpunit": "^0.3|^1.1",
+                "phpunit/phpunit": "^4.7|^5.0",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides the PECL libsodium extension for use with the SodiumRandomGenerator",
+                "ext-uuid": "Provides the PECL UUID extension for use with the PeclUuidTimeGenerator and PeclUuidRandomGenerator",
+                "ircmaxell/random-lib": "Provides RandomLib for use with the RandomLibAdapter",
+                "moontoast/math": "Provides support for converting UUID to 128-bit integer (in string form).",
+                "ramsey/uuid-console": "A console application for generating UUIDs with ramsey/uuid",
+                "ramsey/uuid-doctrine": "Allows the use of Ramsey\\Uuid\\Uuid as Doctrine field type."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ramsey\\Uuid\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Huizendveld",
+                    "email": "marijn.huizendveld@gmail.com"
+                },
+                {
+                    "name": "Thibaud Fabre",
+                    "email": "thibaud@aztech.io"
+                },
+                {
+                    "name": "Ben Ramsey",
+                    "email": "ben@benramsey.com",
+                    "homepage": "https://benramsey.com"
+                }
+            ],
+            "description": "Formerly rhumsaa/uuid. A PHP 5.4+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID).",
+            "homepage": "https://github.com/ramsey/uuid",
+            "keywords": [
+                "guid",
+                "identifier",
+                "uuid"
+            ],
+            "time": "2018-01-20T00:28:24+00:00"
         },
         {
             "name": "sensio/framework-extra-bundle",

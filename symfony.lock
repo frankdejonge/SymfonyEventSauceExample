@@ -68,6 +68,15 @@
     "egulias/email-validator": {
         "version": "2.1.3"
     },
+    "eventsauce/doctrine-message-repository": {
+        "version": "0.3.0"
+    },
+    "eventsauce/eventsauce": {
+        "version": "0.3.1"
+    },
+    "eventsauce/rabbitmq-bundle-bindings": {
+        "version": "0.3.0"
+    },
     "fig/link-util": {
         "version": "1.0.0"
     },
@@ -82,6 +91,21 @@
     },
     "ocramius/proxy-manager": {
         "version": "2.2.0"
+    },
+    "paragonie/random_compat": {
+        "version": "v2.0.11"
+    },
+    "php-amqplib/php-amqplib": {
+        "version": "v2.7.2"
+    },
+    "php-amqplib/rabbitmq-bundle": {
+        "version": "1.12",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.12",
+            "ref": "ce3ca2e4577270c4f518539aa6b9e878998fcfef"
+        }
     },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
@@ -106,6 +130,9 @@
     },
     "psr/simple-cache": {
         "version": "1.0.1"
+    },
+    "ramsey/uuid": {
+        "version": "3.7.3"
     },
     "sensio/framework-extra-bundle": {
         "version": "4.0",
