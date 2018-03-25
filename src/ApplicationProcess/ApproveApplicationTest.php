@@ -2,7 +2,7 @@
 
 namespace AcmeCompany\ApplicationProcess;
 
-class ApprovdeApplicationTest extends ApplicationTestCase
+class ApproveApplicationTest extends ApplicationTestCase
 {
     /**
      * @before
