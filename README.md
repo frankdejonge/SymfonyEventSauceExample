@@ -8,6 +8,12 @@ that's broken up into a couple stages:
 3. An admin approves or declines the application in a dashboard.
 4. The applicant receives an email.
 
+## What's in the demo:
+
+This demo features some of the more complex setups eventsauce has to offer.
+It uses sync and async projections, uses RabbitMQ for async message consumers,
+uses Doctrine for the message repository and has a complete set of tests.
+
 ## Running the example
 
 ```bash
