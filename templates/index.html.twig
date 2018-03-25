@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">This is the Symfony demo application for EventSauce</p>
+        <hr class="my-4">
+        <p>The demo process is split up into a couple steps:</p>
+        <ol>
+            <li>A user starts the application process.</li>
+            <li>They provide account information.</li>
+            <li>An admin receives an email they can review the application.</li>
+            <li>The admin approves or declines the application.</li>
+        </ol>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{{ path('application.start_form') }}" role="button">Learn more</a>
+        </p>
+    </div>
+{% endblock %}

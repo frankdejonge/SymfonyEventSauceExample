@@ -8,12 +8,9 @@ parameters:
 doctrine:
     dbal:
         # configure these for your database server
-        driver: 'pdo_mysql'
-        server_version: '5.7'
-        charset: utf8mb4
-        default_table_options:
-            charset: utf8mb4
-            collate: utf8mb4_unicode_ci
+        driver: 'pdo_pgsql'
+        server_version: '9.6'
+        schema_filter: '~^(?!(?:domain_messages|other_ignored_table))~'
 
         # With Symfony 3.3, remove the `resolve:` prefix
         url: '%env(resolve:DATABASE_URL)%'
@@ -22,9 +19,15 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         mappings:
-            App:
+            PersonalInformation:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+                dir: '%kernel.project_dir%/src/App/PersonalInformation'
+                prefix: 'App\PersonalInformation'
+                alias: PersonalInformation
+            PendingApplications:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/ApplicationProcess/PendingApplications'
+                prefix: 'AcmeCompany\ApplicationProcess\PendingApplications'
+                alias: PendingApplications

@@ -2,6 +2,21 @@ old_sound_rabbit_mq:
     connections:
         default:
             url: '%env(RABBITMQ_URL)%'
+    producers:
+        application_process:
+            connection: default
+            exchange_options:
+                name: application_process
+                type: fanout
+    consumers:
+        application_process:
+            connection: default
+            exchange_options:
+                name: application_process
+                type: fanout
+            queue_options:
+                name: application_process
+            callback: application.asynchronous_message_consumer
 #    producers:
 #        # use 'old_sound_rabbit_mq.task_producer' service to send data.
 #        task:

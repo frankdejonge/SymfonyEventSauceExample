@@ -1,28 +1,87 @@
-# Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
 
 services:
-    # default configuration for services in *this* file
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-        public: false       # Allows optimizing the container by removing unused services; this also means
-                            # fetching services directly from the container via $container->get() won't work.
-                            # The best practice is to be explicit about your dependencies anyway.
+        autowire: false
+        autoconfigure: true
+        public: false
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
-    App\:
-        resource: '../src/*'
-        exclude: '../src/{Entity,Migrations,Tests,Kernel.php}'
-
-    # controllers are imported separately to make sure services can be injected
-    # as action arguments even if you don't extend any base controller class
     App\Controller\:
-        resource: '../src/Controller'
+        resource: '../src/App/Controller'
         tags: ['controller.service_arguments']
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    personal_information.repository:
+        public: true
+        class: App\PersonalInformation\DoctrinePersonalInformationRepository
+        factory: ['@doctrine.orm.entity_manager', getRepository]
+        arguments:
+            - 'App\PersonalInformation\PersonalInformation'
+
+    account.pending_applications:
+        public: true
+        class: AcmeCompany\ApplicationProcess\PendingApplications\DoctrinePendingApplicationRepository
+        factory: ['@doctrine.orm.entity_manager', getRepository]
+        arguments:
+            - 'AcmeCompany\ApplicationProcess\PendingApplications\PendingApplication'
+
+    account.pending_application_projection:
+        class: AcmeCompany\ApplicationProcess\PendingApplications\PendingApplicationsProjection
+        arguments:
+            - '@account.pending_applications'
+            - '@personal_information.repository'
+
+    account.sending_emails.projection:
+        class: AcmeCompany\ApplicationProcess\SendingEmailsDuringProcess\EmailSendingConsumer
+        arguments:
+            - '@mailer'
+            - '@personal_information.repository'
+
+    application.message_serializer:
+        class: EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer
+
+    application.message_repository:
+        class: EventSauce\DoctrineMessageRepository\DoctrineMessageRepository
+        arguments:
+            - '@doctrine.dbal.default_connection'
+            - '@application.message_serializer'
+            - 'domain_messages'
+
+    application.synchronous_message_dispatcher:
+        class: EventSauce\EventSourcing\SynchronousMessageDispatcher
+        arguments:
+            - '@account.pending_application_projection'
+
+    application.asynchronous_message_dispatcher:
+        class: EventSauce\RabbitMQ\RabbitMQMessageDispatcher
+        arguments:
+            - '@old_sound_rabbit_mq.application_process_producer'
+            - '@application.message_serializer'
+
+    application.asynchronous_message_consumer:
+        lazy: true
+        class: EventSauce\RabbitMQ\RabbitMQConsumer
+        arguments:
+            - '@account.sending_emails.projection'
+            - '@application.message_serializer'
+
+    application.message_dispatcher:
+        class: EventSauce\EventSourcing\MessageDispatcherChain
+        arguments:
+            - '@application.synchronous_message_dispatcher'
+            - '@application.asynchronous_message_dispatcher'
+
+    application.aggregate_root_repository:
+        class: EventSauce\EventSourcing\ConstructingAggregateRootRepository
+        arguments:
+            - 'AcmeCompany\ApplicationProcess\Application'
+            - '@application.message_repository'
+            - '@application.message_dispatcher'
+
+    application.command_handler:
+        public: true
+        class: AcmeCompany\ApplicationProcess\ApplicationCommandHandler
+        arguments:
+            - '@application.aggregate_root_repository'
+            - '@personal_information.repository'
+

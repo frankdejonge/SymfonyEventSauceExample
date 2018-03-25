@@ -1,0 +1,52 @@
+---
+namespace: AcmeCompany\ApplicationProcess
+types:
+    applicationId:
+        type: ApplicationId
+        serializer: >
+            {param}->toString()
+        deserializer: >
+            ApplicationId::fromString({param})
+    uuid:
+        type: Ramsey\Uuid\UuidInterface
+        serializer: >
+            {param}->toString()
+        deserializer: >
+            \Ramsey\Uuid\Uuid::fromString({param})
+
+commands:
+    StartApplication:
+        fields:
+            applicationId: applicationId
+    SpecifyApplicationInformation:
+        fields:
+            applicationId: applicationId
+            firstName:
+                type: string
+                example: Jesse
+            lastName:
+                type: string
+                example: Williams
+            email:
+                type: string
+                example: jesse.williams@company.tld
+    DeclineApplication:
+        fields:
+            applicationId: applicationId
+            reason: string
+    ApproveApplication:
+        fields:
+            applicationId: applicationId
+events:
+    ApplicationWasStarted:
+        fields: []
+    ApplicationInformationWasSpecified:
+        fields: []
+    ApplicationWasApproved:
+        fields: []
+    ApplicationWasDeclined:
+        fields:
+            reason:
+                type: string
+                example: 'person is not qualified'
+

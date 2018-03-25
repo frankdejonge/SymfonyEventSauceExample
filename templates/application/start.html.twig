@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('application.process_start_form') }}" method="post">
+        <h3>Are you ready to start the application process?</h3>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('process_start_form') }}">
+        <button class="btn btn-primary btn-lg" type="submit">Start!</button>
+    </form>
+{% endblock %}

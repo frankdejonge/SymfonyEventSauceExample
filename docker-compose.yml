@@ -1,0 +1,26 @@
+version: "2"
+services:
+    rabbit:
+        image: rabbitmq:3.6-management-alpine
+        hostname: rabbit
+        environment:
+            RABBITMQ_ERLANG_COOKIE: "012794e09e71uoihadsc"
+            RABBITMQ_DEFAULT_USER: "guest"
+            RABBITMQ_DEFAULT_PASS: "guest"
+            RABBITMQ_DEFAULT_VHOST: "/"
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+    postgres:
+        image: postgres:9.6-alpine
+        environment:
+            POSTGRES_DB: "domain_messages"
+            POSTGRES_USER: "username"
+            POSTGRES_PASSWORD: "password"
+        ports:
+            - "5432:5432"
+    mailcatcher:
+        image: tophfr/mailcatcher
+        ports:
+            - "1080:80"
+            - "1025:25"
