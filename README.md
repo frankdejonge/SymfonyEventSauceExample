@@ -17,6 +17,7 @@ uses Doctrine for the message repository and has a complete set of tests.
 ## Running the example
 
 ```bash
+$ composer install
 $ docker-compose -f docker-compose.yml up
 $ bin/console doctrine:migrations:migrate -n
 $ bin/console rabbitmq:setup-fabric
